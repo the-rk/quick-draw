@@ -13,6 +13,8 @@ sketch= element_of_array;
 function setup(){
    canvas= createCanvas(280,280);
    canvas.position(510,350);
+   background("white");
+   canvas.mouseReleased(classifyCanvas);
 }
 function draw(){
    check_sketch();
@@ -33,11 +35,29 @@ function check_sketch(){
       answer_holder="";
       updateCanvas();
    }
+   strokeWeight(13);
+   stroke("red");
+   if (mouseIsPressed){
+   line(pmouseX,pmouseY,mouseX,mouseY);
+   }
 }
  function updateCanvas(){
     background("white");
     sketch =element_of_array;
     document.getElementById("drawn").innerHTML = "Sketch to be drawn: "+ sketch;
  }
-
+ function classifyCanvas(){
+   classifier.classify(canvas,gotresult);
+}
+function gotresult(error,results){
+if (error){
+   console.error(error);
+}
+else{
+ console.log(results);
+ document.getElementById("label").innerHTML = "Your Sketch: "+ results[0].label;
+ document.getElementById("confidence").innerHTML = "Confidence: "+ Math.round(results[0].confidence *100)+"%";
+ 
+}
+}
   
