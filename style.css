@@ -1,0 +1,40 @@
+#score {
+    font-size: 30px;
+    margin-right: 950px;
+    float:left;
+}
+#time {
+   font-size: 30px;
+   margin-left: 950px;
+}
+body{
+    background-color: greenyellow;
+}
+#drawn {
+    color: red;
+    font-size: 20px;
+    float: center;
+}
+#your_sketch {
+    font-size: 15px;
+    font-weight: bold;
+}
+#confidence {
+    font-size: 15px;
+    font-weight: bold;
+}
+#show_sketch{
+    float: right;
+}
+canvas{
+    background-color: aliceblue;
+    border: 5px solid white;
+    border-radius:20px;
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+@keyframes example {
+   from{box-shadow:1px 1px 45px red;}
+   to{box-shadow: 1px 1px 45px yellow;}
+}
